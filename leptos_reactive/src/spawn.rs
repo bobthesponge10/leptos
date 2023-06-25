@@ -15,7 +15,7 @@ where
         }
         else if #[cfg(any(test, doctest))] {
             tokio_test::block_on(fut);
-        } else if #[cfg(feature = "ssr")] {
+        } else if #[cfg(all(feature = "ssr", not(target_arch = "wasm32")))] {
             tokio::task::spawn_local(fut);
         }  else {
             futures::executor::block_on(fut)
