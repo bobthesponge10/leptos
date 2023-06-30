@@ -18,7 +18,7 @@ quote = "1"
 syn = { version = "2", features = ["full", "parsing", "extra-traits"] }
 proc-macro2 = "1"
 ciborium = "0.2"
-xxhash-rust = { version = "0.8", features = ["const_xxh64"] }
+xxhash-rust = { version = "0.8.6", features = ["const_xxh64"] }
 const_format = "0.2"
 inventory = { version = "0.3", optional = true }
 lazy_static = "1"

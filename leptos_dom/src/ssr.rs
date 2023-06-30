@@ -186,7 +186,7 @@ pub fn render_to_stream_with_prefix_undisposed_with_context_and_block_replacemen
     replace_blocks: bool,
 ) -> (impl Stream<Item = String>, RuntimeId, ScopeId) {
     HydrationCtx::reset_id();
-
+    //worker::console_log!("streaming");
     // create the runtime
     let runtime = create_runtime();
 

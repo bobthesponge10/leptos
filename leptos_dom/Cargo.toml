@@ -28,6 +28,7 @@ smallvec = "1"
 tracing = "0.1"
 wasm-bindgen = { version = "0.2", features = ["enable-interning"] }
 wasm-bindgen-futures = "0.4.31"
+worker = "0.0.12"
 
 [dev-dependencies]
 leptos = { path = "../leptos" }

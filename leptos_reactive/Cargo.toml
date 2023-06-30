@@ -43,6 +43,7 @@ web-sys = { version = "0.3", optional = true, features = [
 cfg-if = "1"
 indexmap = "1"
 self_cell = "1.0.0"
+worker = "0.0.12"
 
 [dev-dependencies]
 criterion = { version = "0.5.1", features = ["html_reports"] }
@@ -73,6 +74,18 @@ serde = []
 serde-lite = ["dep:serde-lite"]
 miniserde = ["dep:miniserde"]
 rkyv = ["dep:rkyv", "dep:bytecheck"]
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+js-sys = { version = "0.3" }
+wasm-bindgen = { version = "0.2"}
+wasm-bindgen-futures = { version = "0.4"}
+web-sys = { version = "0.3", features = [
+  "DocumentFragment",
+  "Element",
+  "HtmlTemplateElement",
+  "NodeList",
+  "Window",
+] }
 
 [package.metadata.cargo-all-features]
 denylist = ["stable"]

@@ -11,7 +11,16 @@ where
 {
     cfg_if! {
         if #[cfg(all(target_arch = "wasm32", any(feature = "csr", feature = "hydrate")))] {
-            wasm_bindgen_futures::spawn_local(fut)
+            // worker::console_log!("Spawned Local");
+            // let f = async move{
+            //     worker::console_log!("Started Local");
+            //     fut.await;
+            //     worker::console_log!("Ended Local");
+            // };
+
+            wasm_bindgen_futures::spawn_local(fut);
+        }else if #[cfg(all(target_arch = "wasm32", feature = "ssr"))] {
+            wasm_bindgen_futures::spawn_local(fut);
         }
         else if #[cfg(any(test, doctest))] {
             tokio_test::block_on(fut);

@@ -125,6 +125,7 @@ mod multi_action;
 pub use action::*;
 pub use multi_action::*;
 extern crate tracing;
+use worker::console_log;
 
 #[cfg(any(feature = "ssr", doc))]
 use std::{
@@ -205,6 +206,7 @@ impl server_fn::ServerFunctionRegistry<Scope> for LeptosServerFnRegistry {
         server_function: server_fn::SerializedFnTraitObj<Scope>,
         encoding: Encoding,
     ) -> Result<(), Self::Error> {
+        //console_log!("{:?}", url);
         // store it in the hashmap
         let mut func_write = REGISTERED_SERVER_FUNCTIONS
             .write()

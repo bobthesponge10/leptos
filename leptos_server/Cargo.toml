@@ -16,6 +16,7 @@ serde = { version = "1", features = ["derive"] }
 thiserror = "1"
 tracing = "0.1"
 inventory = "0.3"
+worker = "0.0.12"
 
 [dev-dependencies]
 leptos = { path = "../leptos" }
